@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export BUILDPACK_STDLIB_URL="https://lang-common.s3.amazonaws.com/buildpack-stdlib/v7/stdlib.sh"
+export BUILDPACK_STDLIB_URL="https://buildpacks.oss-accelerate.aliyuncs.com/common/stdlib/stdlib.sh"
 
 SBT_0_VERSION_PATTERN='sbt\.version=\(0\.1[1-3]\.[0-9]*\(-[a-zA-Z0-9_]*\)*\)$'
 SBT_1_VERSION_PATTERN='sbt\.version=\(1\.[0-9]*\.[0-9]*\(-[a-zA-Z0-9_]*\)*\)$'
@@ -166,7 +166,7 @@ _download_and_unpack_ivy_cache() {
   local scalaVersion=$2
   local playVersion=$3
 
-  baseUrl="https://lang-jvm.s3.amazonaws.com/sbt/v8/sbt-cache"
+  baseUrl="https://buildpacks.oss-accelerate.aliyuncs.com/jvm/sbt/v8/sbt-cache"
   if [ -n "$playVersion" ]; then
     ivyCacheUrl="$baseUrl-play-${playVersion}_${scalaVersion}.tar.gz"
   else
@@ -324,7 +324,7 @@ install_jdk() {
   local cache_dir=${2:?}
 
   let start=$(nowms)
-  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/jvm.tgz}
+  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://buildpacks.oss-accelerate.aliyuncs.com/common/jvm/jvm.tgz}
   mkdir -p /tmp/jvm-common
   curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
   source /tmp/jvm-common/bin/util
