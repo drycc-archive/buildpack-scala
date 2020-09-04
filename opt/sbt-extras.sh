@@ -116,7 +116,7 @@ url_base() {
   local version="$1"
 
   case "$version" in
-    0.7.*)     echo "https://buildpacks.oss-accelerate.aliyuncs.com/storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/simple-build-tool" ;;
+    0.7.*)     echo "http://buildpacks.drycc.cc/storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/simple-build-tool" ;;
     0.10.*)    echo "$sbt_launch_ivy_release_repo" ;;
     0.11.[12]) echo "$sbt_launch_ivy_release_repo" ;;
     0.*-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9]) # ie "*-yyyymmdd-hhMMss"
