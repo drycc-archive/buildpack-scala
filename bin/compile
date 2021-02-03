@@ -50,7 +50,7 @@ export_env $ENV_DIR "." "JAVA_OPTS"
 # Set system properties as env vars
 SYSPROPFILE="$BUILD_DIR/system.properties"
 
-JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-"https://buildpacks.drycc.cc/common/jvm/jvm.tgz"}
+JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-"https://buildpacks.drycc.cc/common/jvm/main.tar.gz"}
 JVM_COMMON_BUILDPACK=$(get_property "$SYSPROPFILE" "heroku.jvm.buildpack" "$JVM_COMMON_BUILDPACK")
 KEEP_PLAY_FORK_RUN=$(get_property "$SYSPROPFILE" "sbt.keep-play-fork-run" "${KEEP_PLAY_FORK_RUN:-false}")
 SBT_PROJECT=$(get_property "$SYSPROPFILE" "sbt.project")
